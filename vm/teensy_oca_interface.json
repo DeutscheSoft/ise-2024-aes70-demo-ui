@@ -1,0 +1,104 @@
+[
+  {
+      "type": "OcaDeviceManager",
+      "Role": "MyDevice",
+      "ManufacturerName": "Welliver Technologies",
+      "DeviceName": "TEENSY41-AMPLIFIER-DEMO",
+      "DeviceRole": "TEENSY41-AMPLIFIER-DEMO",
+      "SerialNumber": "0c22d1",
+      "DeviceVersion": "1029"
+  },
+  {
+      "type": "OcaBlock",
+      "Role": "Channel 1",
+      "Members": [
+          {
+              "type": "OcaStringActuator",
+              "Role": "ChannelName",
+              "Setting": "My Channel Name"
+          },
+          {
+              "type": "OcaStringActuator",
+              "Role": "ChannelSource",
+              "Setting": "My AES67 Stream"
+          },
+          {
+              "type": "OcaGain",
+              "Role": "PreGain",
+              "Gain": 0,
+              "minGain": -100,
+              "maxGain": 24
+          },
+          {
+              "type": "OcaGain",
+              "Role": "Volume",
+              "Gain": 0,
+              "minGain": 0,
+              "maxGain": 100
+          },
+          {
+              "type": "OcaGain",
+              "Role": "Gain",
+              "Gain": 0,
+              "minGain": -100,
+              "maxGain": 24
+          },
+          {
+              "type": "OcaMute",
+              "Role": "Mute",
+              "State": "Unmuted"
+          },
+          {
+              "type": "OcaLevelSensor",
+              "Role": "LevelSensor",
+              "minLevel": 0,
+              "maxLevel": 0,
+              "Level": 0,
+              "maxReading": 24,
+              "minReading": -100
+          },
+          {
+              "type": "OcaGain",
+              "Role": "125Hz",
+              "Gain": 0,
+              "minGain": -2.5,
+              "maxGain": 2.5
+          },
+          {
+              "type": "OcaGain",
+              "Role": "330Hz",
+              "Gain": 0,
+              "minGain": -2.5,
+              "maxGain": 2.5
+          },
+          {
+              "type": "OcaGain",
+              "Role": "990Hz",
+              "Gain": 0,
+              "minGain": -2.5,
+              "maxGain": 2.5
+          },
+          {
+              "type": "OcaGain",
+              "Role": "3000Hz",
+              "Gain": 0,
+              "minGain": -2.5,
+              "maxGain": 2.5
+          },
+          {
+              "type": "OcaGain",
+              "Role": "9000Hz",
+              "Gain": 0,
+              "minGain": -2.5,
+              "maxGain": 2.5
+          },
+          {
+              "type": "OcaFloat32Sensor",
+              "Role": "CPU Utilization",
+              "minReading": 0,
+              "maxReading": 100,
+              "Reading": 0
+          }
+      ]
+  }
+]

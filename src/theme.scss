@@ -1,0 +1,415 @@
+@charset "UTF-8";
+
+@import '@deutschesoft/aux-widgets/styles/blank_nofonts.css';
+
+@font-face {
+  font-family: 'asap_condensedlight';
+  src: url('/fonts/asapcondensed-light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'asap_condensedregular';
+  src: url('/fonts/asapcondensed-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'asap_condensedmedium';
+  src: url('/fonts/asapcondensed-medium-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* this UI is built with pure CSS */
+
+:root {
+  --aux-main-base: #e0e0e0;
+  --aux-main-text: #212424;
+
+  --aux-widget-base: #ffffff;
+  --aux-widget-text: var(--aux-main-text);
+
+  --aux-active-base: #f80;
+  --aux-active-text: #ffffff;
+
+  --aux-active-graph-base: #ffffff;
+  --aux-graph-fill: rgba(37, 119, 161, 0.33);
+
+  --aux-dialog-background: var(--aux-contrast-base);
+  --aux-dialog-color: var(--aux-contrast-text);
+  --aux-dialog-shadow: 1px 3px 12px rgba(0, 0, 0, 0.5);
+
+  --aux-dialog-modal-background: var(--aux-main-base);
+  --aux-dialog-modal-color: var(--aux-main-text);
+  --aux-dialog-modal-opacity: 0.5;
+
+  --aux-fader-handle-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5),
+    1px 3px 3px rgba(0, 0, 0, 0.2), 2px 6px 3px rgba(0, 0, 0, 0.18),
+    3px 9px 3px rgba(0, 0, 0, 0.16);
+
+  --aux-fader-handlewidth: 30px;
+
+  --aux-fader-active-base-top: rgb(192, 102, 0);
+  --aux-fader-active-base-bottom: #f80;
+  --aux-fader-border-radius: 2px;
+
+  --aux-fader-handle1: #ffffff;
+  --aux-fader-handle2: #adadad;
+  --aux-fader-handle3: #777777;
+  --aux-fader-handle4: #bfbfbf;
+  --aux-fader-handle5: #bfbfbf;
+  --aux-fader-handle6: #eaeaea;
+  --aux-fader-handle7: #a7a7a7;
+  --aux-fader-handle8: #656565;
+
+  /*
+  --aux-fader-handle1: #5d6666;
+  --aux-fader-handle2: #363a3a;
+  --aux-fader-handle3: #1e2121;
+  --aux-fader-handle4: #353a3a;
+  --aux-fader-handle5: #353a3a;
+  --aux-fader-handle6: #353a3a;
+  --aux-fader-handle7: #212424;
+  --aux-fader-handle8: #191c1c;
+  */
+
+  --aux-knob-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5),
+    1px 3px 3px rgba(0, 0, 0, 0.2), 2px 6px 3px rgba(0, 0, 0, 0.18),
+    3px 9px 3px rgba(0, 0, 0, 0.16), 4px 12px 3px rgba(0, 0, 0, 0.14),
+    5px 15px 3px rgba(0, 0, 0, 0.12);
+
+  --aux-spread-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5),
+    1px 3px 3px rgba(0, 0, 0, 0.2), 2px 6px 3px rgba(0, 0, 0, 0.18),
+    3px 9px 3px rgba(0, 0, 0, 0.16);
+
+  --aux-spread-handle1: #5d6666;
+  --aux-spread-handle2: #363a3a;
+  --aux-spread-handle3: #1e2121;
+  --aux-spread-handle4: #353a3a;
+  --aux-spread-handle5: #353a3a;
+  --aux-spread-handle6: #353a3a;
+  --aux-spread-handle7: #212424;
+  --aux-spread-handle8: #191c1c;
+
+  --aux-warn-base: #ee11ba00;
+  --aux-warn-text: #ffffff;
+
+  --aux-ok-base: #00d793;
+  --aux-ok-text: #ffffff;
+
+  --aux-contrast-base: var(--aux-main-text);
+  --aux-contrast-text: #ffffff;
+
+  --aux-transition-duration: 0.33s;
+
+  --aux-border-radius: 6px;
+
+  --aux-outline: none;
+
+  --aux-button-paddingvertical: 4px;
+  --aux-button-paddinghorizontal: 10px;
+  /* var(--aux-outline-width) solid var(--aux-active-base);
+  --aux-outline-width: 2px;
+  --aux-outline-offset: 2px;*/
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
+  --aux-scale-fontfamily: 'asap_condensedlight';
+  --aux-main-fontfamily: 'asap_condensedmedium';
+  font-family: 'asap_condensedregular';
+  font-size: 12px;
+}
+
+.light {
+  font-family: 'asap_condensedlight';
+}
+
+.medium, button {
+  font-family: 'asap_condensedmedium';
+}
+
+.warn {
+  color: black;
+}
+
+/* ######## GENERIC CSS ######## */
+
+::selection {
+  color: var(--aux-active-text);
+  background: var(--aux-active-base);
+}
+
+.aux-disabled {
+  filter: grayscale(100%) contrast(50%);
+}
+
+/* ######## WIDGETS ######## */
+
+/* BUTTON */
+
+.aux-button {
+  height: initial !important;
+  background: var(--aux-widget-base);
+  color: var(--aux-widget-text);
+  border: 1px solid var(--aux-widget-base);
+  border-radius: var(--aux-border-radius);
+  transition:
+    background var(--aux-transition-duration),
+    color var(--aux-transition-duration),
+    border-color var(--aux-transition-duration);
+  /* look into nesting for more widget encapsulation */
+  &:hover {
+    color: var(--aux-main-text);
+    border-color: var(--aux-active-base);
+    cursor: pointer;
+  }
+}
+
+.aux-button:focus,
+.aux-button.aux-focus {
+  outline: var(--aux-outline);
+  outline-offset: var(--aux-outline-offset);
+  border-color: var(--aux-active-base);
+}
+.aux-button.aux-active {
+  background: var(--aux-active-base);
+  color: var(--aux-active-text);
+  border-color: var(--aux-active-base);
+}
+.aux-button.aux-active:hover {
+  border-color: var(--aux-active-text);
+}
+.aux-button.aux-active:focus {
+  border-color: var(--aux-active-text);
+}
+.aux-button.aux-warn {
+  background: var(--aux-warn-base);
+  color: var(--aux-warn-text);
+  border-color: var(--aux-warn-base);
+}
+
+/* CIRCULAR */
+
+.aux-circular .aux-base {
+  fill: var(--aux-widget-base);
+}
+.aux-circular .aux-value {
+  fill: var(--aux-active-base);
+}
+.aux-circular .aux-hand {
+  fill: var(--aux-widget-base);
+}
+.aux-circular .aux-labels .aux-label {
+  fill: var(--aux-main-text);
+}
+.aux-circular .aux-dots .aux-dot {
+  fill: var(--aux-widget-base);
+}
+.aux-circular .aux-markers .aux-marker {
+  fill: var(--aux-warn-base);
+}
+.aux-circular.aux-warn .aux-base {
+  fill: var(--aux-warn-base);
+}
+.aux-circular.aux-warn .aux-value {
+  fill: var(--aux-warn-base);
+}
+.aux-circular.aux-warn .aux-hand {
+  fill: var(--aux-warn-base);
+}
+
+/* FADER */
+
+.aux-fader.aux-vertical {
+  grid-template-areas:
+    'value value'
+    'track scale'
+    'label label';
+  column-gap: 10px;
+}
+.aux-fader .aux-handle {
+  border-radius: var(--aux-fader-border-radius);
+  box-shadow: var(--aux-fader-handle-shadow);
+}
+
+.aux-fader .aux-handle:focus {
+  outline: var(--aux-outline);
+  outline-offset: 4px;
+}
+
+.aux-fader.aux-vertical .aux-handle {
+  background: linear-gradient(
+    to bottom,
+    var(--aux-fader-handle1) 0%,
+    var(--aux-fader-handle2) 20%,
+    var(--aux-fader-handle3) 22%,
+    var(--aux-fader-handle4) 47%,
+    var(--aux-fader-active-base-top) 48%,
+    var(--aux-fader-active-base-bottom) 52%,
+    var(--aux-fader-handle5) 53%,
+    var(--aux-fader-handle6) 78%,
+    var(--aux-fader-handle7) 80%,
+    var(--aux-fader-handle8) 100%
+  );
+}
+.aux-fader.aux-vertical.aux-warn .aux-handle {
+  background: linear-gradient(
+    to bottom,
+    var(--aux-fader-handle1) 0%,
+    var(--aux-fader-handle2) 20%,
+    var(--aux-fader-handle3) 22%,
+    var(--aux-fader-handle4) 48%,
+    var(--aux-warn-base) 49%,
+    var(--aux-warn-base) 51%,
+    var(--aux-fader-handle5) 52%,
+    var(--aux-fader-handle6) 78%,
+    var(--aux-fader-handle7) 80%,
+    var(--aux-fader-handle8) 100%
+  );
+}
+.aux-fader.aux-horizontal .aux-handle {
+  background: linear-gradient(
+    to right,
+    var(--aux-fader-handle1) 0%,
+    var(--aux-fader-handle2) 20%,
+    var(--aux-fader-handle3) 22%,
+    var(--aux-fader-handle4) 48%,
+    var(--aux-active-base) 49%,
+    var(--aux-active-base) 51%,
+    var(--aux-fader-handle5) 52%,
+    var(--aux-fader-handle6) 78%,
+    var(--aux-fader-handle7) 80%,
+    var(--aux-fader-handle8) 100%
+  );
+}
+.aux-fader.aux-horizontal.aux-warn .aux-handle {
+  background: linear-gradient(
+    to right,
+    var(--aux-fader-handle1) 0%,
+    var(--aux-fader-handle2) 20%,
+    var(--aux-fader-handle3) 22%,
+    var(--aux-fader-handle4) 48%,
+    var(--aux-warn-base) 49%,
+    var(--aux-warn-base) 51%,
+    var(--aux-fader-handle5) 52%,
+    var(--aux-fader-handle6) 78%,
+    var(--aux-fader-handle7) 80%,
+    var(--aux-fader-handle8) 100%
+  );
+}
+.aux-fader > .aux-track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: black;
+  transform: translate(-50%, -50%);
+}
+.aux-fader.aux-vertical > .aux-track::before {
+  width: 2px;
+  height: calc(100% - var(--aux-fader-handleheight));
+}
+.aux-fader.aux-horizontal > .aux-track::before {
+  width: calc(100% - var(--aux-fader-handleheight));
+  height: 2px;
+}
+
+.aux-fader > .aux-label {
+  width: var(--aux-fader-handlewidth);
+  text-align: center !important;
+  overflow: visible;
+}
+
+/* KNOB */
+
+.aux-knob::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 61, 61, 1) 0%,
+    rgba(18, 20, 20, 1) 100%
+  );
+}
+.aux-knob::after {
+  box-shadow: var(--aux-knob-shadow);
+}
+.aux-knob > svg {
+  border-radius: initial;
+  &:focus {
+    outline: var(--aux-outline);
+    outline-offset: 2px;
+  }
+  .aux-label {
+    fill: var(--aux-main-base) !important;
+  }
+}
+
+/* METER */
+
+.aux-meter .aux-mask {
+  opacity: 0.86;
+}
+.aux-meter.aux-vertical {
+  grid-template-areas:
+    'value value'
+    'bar scale'
+    'label label';
+}
+.aux-meter > .aux-label {
+  text-align: left !important;
+  justify-self: start !important;
+}
+
+/* ROOT */
+
+.aux-root {
+  background: var(--aux-main-base);
+  color: var(--aux-main-text);
+}
+
+/* SCALE */
+
+.aux-scale > .aux-dot {
+  background: var(--aux-main-base);
+  opacity: 0.33;
+}
+.aux-scale > .aux-dot.aux-marker {
+  opacity: 1;
+}
+.aux-scale > .aux-bar {
+  background: var(--aux-active-base);
+}
+
+/* STATE */
+
+.aux-state {
+  background: var(--aux-warn-base);
+}
+
+/* VALUE */
+
+.aux-value > .aux-input {
+  background: var(--aux-widget-base);
+  color: var(--aux-widget-text);
+  border-radius: var(--aux-border-radius);
+}
+.aux-value.aux-active > .aux-input {
+  background: var(--aux-contrast-base);
+  color: var(--aux-contrast-text);
+}
+
+/* OVERRIDES */
+
+.aux-scale > .aux-label {
+  font-size: 75%;
+}
+
+.aux-circular .aux-labels .aux-label {
+  font-size: 125%;
+}
+
+.aux-active .aux-icon::before {
+  color: var(--aux-active-text);
+}
