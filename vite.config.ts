@@ -27,7 +27,8 @@ export default defineConfig({
             "sizes": "512x512"
           }
         ]
-      }
+      },
+      includeAssets: ['/fonts/*.woff2', '/icons/*.png']
     })
   ]
 })
