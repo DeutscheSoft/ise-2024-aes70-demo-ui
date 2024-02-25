@@ -14,9 +14,7 @@ export const MuteButton = componentFromWidget(
   },
   {
     label: 'Mute',
-    label_active: 'Muted',
-    icon: 'speaker',
-    icon_active:'mute',
+    label_active: 'Muted'
   },
   'MuteButton'
 );

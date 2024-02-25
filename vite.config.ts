@@ -15,12 +15,6 @@ export default defineConfig({
             "type": "image/png", 
             "sizes": "192x192",
           },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
-          },
           { 
             "src": "/icons/512.png", 
             "type": "image/png", 
@@ -28,7 +22,7 @@ export default defineConfig({
           }
         ]
       },
-      includeAssets: ['/fonts/*.woff2', '/icons/*.png']
+      includeAssets: ['/fonts/*.woff2','/assets/*.ttf', '/icons/*.png']
     })
   ]
 })
