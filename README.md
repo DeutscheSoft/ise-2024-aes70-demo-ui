@@ -1,6 +1,6 @@
 # ISE 2024 OCA Alliance Presentation: Build an AES70 Controller
 
-## Final User Interface, React + AUX Control Widgets + AES70.js controlling 2 WT41 AES67 Mono Amplifiers
+## Final User Interface, React + AUX Control Widgets + AES70.js controlling 2 WT-NA120 AES67 Mono Amplifiers
 
 Install: `npm ci`
 
